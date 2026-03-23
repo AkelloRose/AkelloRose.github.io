@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Akello Rose Odhiambo | Business Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #1a2f52;
+    --blue: #1e4d8c;
+    --accent: #c9a84c;
+    --accent-light: #e8d08a;
+    --cream: #f7f3ed;
+    --cream-dark: #ede7dc;
+    --text: #1a1a2e;
+    --text-light: #5a5a7a;
+    --white: #ffffff;
+    --green: #1a6b47;
+    --green-light: #d4edda;
+    --red: #8b1a1a;
+    --red-light: #fde8e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,31,61,0.97);
+    backdrop-filter: blur(10px);
+    padding: 18px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 120px 60px 80px;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(rgba(201,168,76,0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(201,168,76,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); pointer-events: none;
+  }
+  .hero-orb-1 { width: 500px; height: 500px; background: rgba(30,77,140,0.4); top: -100px; right: -100px; }
+  .hero-orb-2 { width: 300px; height: 300px; background: rgba(201,168,76,0.15); bottom: 50px; left: 200px; }
+
+  .hero-content { position: relative; z-index: 2; max-width: 750px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px; padding: 6px 18px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900; line-height: 1.0;
+    color: var(--white);
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-name span { color: var(--accent); display: block; }
+
+  .hero-title {
+    font-size: 1.15rem; font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    margin: 20px 0 36px;
+    line-height: 1.6;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-title strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+  .hero-stats {
+    display: flex; gap: 40px; margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-stat { }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--accent);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 16px;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--navy);
+    padding: 14px 32px; border-radius: 4px;
+    font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: all 0.2s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: rgba(255,255,255,0.8);
+    padding: 14px 32px; border-radius: 4px;
+    font-weight: 500; font-size: 0.9rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.3); font-size: 0.7rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll::after {
+    content: ''; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 60px; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--navy); margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--text-light);
+    max-width: 540px; line-height: 1.7; margin-bottom: 60px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .about-left { }
+  .about-right { padding-top: 20px; }
+  .about-text {
+    font-size: 1rem; line-height: 1.85; color: var(--text-light);
+    margin-bottom: 20px;
+  }
+  .about-text strong { color: var(--text); font-weight: 600; }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+  .skill-tag {
+    background: var(--cream); border: 1px solid var(--cream-dark);
+    border-radius: 4px; padding: 10px 14px;
+    font-size: 0.82rem; font-weight: 500; color: var(--navy);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-tag::before { content: '◆'; color: var(--accent); font-size: 0.5rem; }
+
+  .contact-card {
+    background: var(--navy); border-radius: 8px; padding: 32px;
+    margin-top: 40px;
+  }
+  .contact-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--white); margin-bottom: 20px;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    color: rgba(255,255,255,0.65); font-size: 0.88rem;
+    margin-bottom: 12px;
+  }
+  .contact-item span { color: var(--accent); font-size: 1rem; }
+
+  /* ── PROJECT ── */
+  #project { background: var(--cream); }
+  .project-card {
+    background: var(--white);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 40px rgba(15,31,61,0.08);
+  }
+  .project-header {
+    background: var(--navy); padding: 48px 56px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .project-badge {
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 4px; padding: 4px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--accent);
+    letter-spacing: 0.1em; margin-bottom: 16px; display: inline-block;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--white);
+    line-height: 1.2; max-width: 500px;
+  }
+  .project-tools {
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  }
+  .tool-pill {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px; padding: 4px 14px;
+    font-size: 0.75rem; color: rgba(255,255,255,0.6);
+  }
+
+  .project-body { padding: 56px; }
+
+  .metrics-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--cream-dark);
+    border-radius: 8px; overflow: hidden; margin-bottom: 56px;
+  }
+  .metric-box {
+    background: var(--white); padding: 28px 24px; text-align: center;
+  }
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem; font-weight: 700; color: var(--navy);
+  }
+  .metric-label {
+    font-size: 0.72rem; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;
+  }
+
+  .insights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+  .insight-card {
+    border-radius: 8px; padding: 28px;
+    border-left: 4px solid;
+  }
+  .insight-card.blue { background: #EBF3FD; border-color: var(--blue); }
+  .insight-card.red { background: var(--red-light); border-color: var(--red); }
+  .insight-card.green { background: var(--green-light); border-color: var(--green); }
+  .insight-card.gold { background: #FEF9EC; border-color: var(--accent); }
+  .insight-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .insight-card.blue .insight-num { color: var(--blue); }
+  .insight-card.red .insight-num { color: var(--red); }
+  .insight-card.green .insight-num { color: var(--green); }
+  .insight-card.gold .insight-num { color: #7a6020; }
+  .insight-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .insight-text { font-size: 0.85rem; line-height: 1.7; color: var(--text-light); }
+  .insight-text strong { color: var(--text); }
+
+  .findings-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  table.data-table {
+    width: 100%; border-collapse: collapse; margin-bottom: 40px;
+    font-size: 0.87rem;
+  }
+  table.data-table th {
+    background: var(--navy); color: var(--white);
+    padding: 12px 16px; text-align: left;
+    font-weight: 600; font-size: 0.78rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  table.data-table td {
+    padding: 12px 16px; border-bottom: 1px solid var(--cream-dark);
+    color: var(--text);
+  }
+  table.data-table tr:hover td { background: var(--cream); }
+  .tag-green { background: var(--green-light); color: var(--green); border-radius: 100px; padding: 2px 10px; font-size: 0.75rem; font-weight: 600; }
+  .tag-red { background: var(--red-light); color: var(--red); border-radius: 100px; padding: 2px 10px; font-size: 0.75rem; font-weight: 600; }
+  .tag-orange { background: #FEF0E0; color: #b35900; border-radius: 100px; padding: 2px 10px; font-size: 0.75rem; font-weight: 600; }
+  .tag-blue { background: #EBF3FD; color: var(--blue); border-radius: 100px; padding: 2px 10px; font-size: 0.75rem; font-weight: 600; }
+
+  .recs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .rec-card {
+    background: var(--cream); border-radius: 8px; padding: 24px;
+    border: 1px solid var(--cream-dark);
+  }
+  .rec-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .rec-title { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 8px; }
+  .rec-text { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--white); }
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 1px; background: var(--cream-dark);
+  }
+  .timeline-item { position: relative; margin-bottom: 52px; }
+  .timeline-dot {
+    position: absolute; left: -39px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--accent);
+    letter-spacing: 0.1em; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 2px;
+  }
+  .timeline-company {
+    font-size: 0.85rem; color: var(--text-light); margin-bottom: 16px;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.88rem; color: var(--text-light); line-height: 1.6;
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem;
+  }
+  .timeline-bullets li strong { color: var(--text); font-weight: 600; }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--navy); }
+  #education .section-title { color: var(--white); }
+  #education .section-label { color: var(--accent); }
+  #education .section-sub { color: rgba(255,255,255,0.45); }
+
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .edu-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 28px;
+    transition: all 0.3s;
+  }
+  .edu-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.3); }
+  .edu-icon { font-size: 1.5rem; margin-bottom: 16px; }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; color: var(--white);
+    margin-bottom: 6px; line-height: 1.3;
+  }
+  .edu-school { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+  .edu-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080f1f; padding: 48px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--white); font-weight: 700;
+  }
+  .footer-sub { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 4px; }
+  .footer-contact { text-align: right; }
+  .footer-contact a {
+    color: var(--accent); text-decoration: none;
+    font-size: 0.88rem; display: block; margin-bottom: 4px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    section { padding: 80px 24px; }
+    .hero { padding: 100px 24px 80px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .insights-grid { grid-template-columns: 1fr; }
+    .recs-grid { grid-template-columns: 1fr; }
+    .metrics-row { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .project-header { flex-direction: column; gap: 24px; }
+    .project-tools { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .nav-links { display: none; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-contact { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Akello Rose</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#project">Project</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="mailto:odhiamboakello8@gmail.com" style="color:var(--accent)">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Open to Junior BA Roles · Nairobi, Kenya</div>
+    <h1 class="hero-name">
+      Akello Rose
+      <span>Odhiambo</span>
+    </h1>
+    <p class="hero-title">
+      <strong>Junior Business Analyst</strong> with a background in operations, procurement and growth strategy.<br/>
+      Turning raw data into decisions that matter.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">4+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">9,994</div>
+        <div class="hero-stat-label">Records Analysed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Tools Mastered</div>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#project" class="btn-primary">View My Work</a>
+      <a href="mailto:odhiamboakello8@gmail.com" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <div class="section-label">// About Me</div>
+      <h2 class="section-title">Bridging Operations & Data Analytics</h2>
+      <p class="about-text">
+        I am a <strong>results-oriented professional</strong> transitioning into Business Analysis, bringing a unique combination of hands-on operational experience and growing data skills. At ManyMangoes, I led initiatives that increased client acquisition by <strong>35%</strong> and improved marketing ROI by <strong>40%</strong> — driven entirely by data-informed decisions.
+      </p>
+      <p class="about-text">
+        My background in procurement, CRM implementation and cross-functional coordination has given me a sharp eye for process inefficiencies — exactly the instinct a BA needs. I am now channelling that experience into structured data analysis, Excel modelling, SQL and Power BI.
+      </p>
+      <div class="skills-grid">
+        <div class="skill-tag">Excel & Pivot Tables</div>
+        <div class="skill-tag">VLOOKUP / SUMIF / COUNTIF</div>
+        <div class="skill-tag">Gap Analysis</div>
+        <div class="skill-tag">Data Reconciliation</div>
+        <div class="skill-tag">Power BI (Learning)</div>
+        <div class="skill-tag">SQL Fundamentals</div>
+        <div class="skill-tag">Process Mapping</div>
+        <div class="skill-tag">Stakeholder Reporting</div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <div class="contact-card">
+        <h3>Let's Connect</h3>
+        <div class="contact-item"><span>📧</span> odhiamboakello8@gmail.com</div>
+        <div class="contact-item"><span>📱</span> +254 743 082 875</div>
+        <div class="contact-item"><span>📍</span> Nairobi, Kenya</div>
+        <div class="contact-item"><span>🎓</span> Diploma in Procurement & Logistics — KCA University</div>
+        <div class="contact-item"><span>📊</span> Data Analytics — ALX (In Progress)</div>
+        <div style="margin-top:24px;">
+          <a href="mailto:odhiamboakello8@gmail.com" class="btn-primary" style="display:inline-block;font-size:0.85rem;">Email Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="section-label reveal">// Portfolio Project</div>
+  <h2 class="section-title reveal">Featured Analysis</h2>
+  <p class="section-sub reveal">A complete end-to-end business analysis project using the Kaggle Sample Superstore dataset — demonstrating core BA skills recruiters test for.</p>
+
+  <div class="project-card reveal">
+    <div class="project-header">
+      <div>
+        <div class="project-badge">PROJECT 01 · MARCH 2026</div>
+        <h3 class="project-title">Retail Sales Performance Analysis — Superstore Dataset</h3>
+      </div>
+      <div class="project-tools">
+        <span class="tool-pill">Microsoft Excel</span>
+        <span class="tool-pill">Pivot Tables</span>
+        <span class="tool-pill">VLOOKUP / SUMIF</span>
+        <span class="tool-pill">Gap Analysis</span>
+        <span class="tool-pill">Conditional Formatting</span>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <!-- METRICS -->
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-num">$2.3M</div>
+          <div class="metric-label">Total Revenue</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">12.47%</div>
+          <div class="metric-label">Profit Margin</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">793</div>
+          <div class="metric-label">Customers Analysed</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">9,994</div>
+          <div class="metric-label">Transactions</div>
+        </div>
+      </div>
+
+      <!-- INSIGHTS -->
+      <h3 class="findings-title">Key Findings</h3>
+      <div class="insights-grid">
+        <div class="insight-card blue">
+          <div class="insight-num">Insight 01 · Overall Performance</div>
+          <div class="insight-title">Profit Margin Below Industry Benchmark</div>
+          <div class="insight-text">At 12.47%, the store retains only <strong>12 cents per dollar earned</strong>. Retail benchmarks suggest 20–30% is healthy. This flags potential over-discounting or high-cost product lines dragging profitability.</div>
+        </div>
+        <div class="insight-card red">
+          <div class="insight-num">Insight 02 · Regional Gap</div>
+          <div class="insight-title">Central Region Is the Problem Area</div>
+          <div class="insight-text">West leads at <strong>14.94% margin</strong> while Central sits at only <strong>7.92%</strong> — a 4.55% gap below the store average despite generating $501K in sales. Heavy discounting is the likely culprit.</div>
+        </div>
+        <div class="insight-card gold">
+          <div class="insight-num">Insight 03 · Product</div>
+          <div class="insight-title">Furniture Drags the Entire Business</div>
+          <div class="insight-text">Furniture's margin is just <strong>2.49%</strong> versus Technology and Office Supplies at 17%. Tables sub-category alone loses <strong>$17,725</strong> on $206K in sales — selling at a loss on every order.</div>
+        </div>
+        <div class="insight-card green">
+          <div class="insight-num">Insight 04 · Customers</div>
+          <div class="insight-title">Vast Customer Profitability Gap</div>
+          <div class="insight-text">Tamara Chand generates <strong>$8,981 profit at 47.14% margin</strong>. Cindy Stewart costs the business <strong>$6,626 at -116% margin</strong>. The same product is being sold at very different discount levels.</div>
+        </div>
+      </div>
+
+      <!-- REGIONAL TABLE -->
+      <h3 class="findings-title">Regional Gap Analysis</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Region</th><th>Total Sales</th><th>Total Profit</th><th>Profit Margin %</th><th>vs Store Average</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>West</strong></td><td>$725,457.82</td><td>$108,418.45</td><td>14.94%</td><td>+2.48%</td>
+            <td><span class="tag-green">Outperforming</span></td>
+          </tr>
+          <tr>
+            <td><strong>East</strong></td><td>$678,781.24</td><td>$91,522.78</td><td>13.48%</td><td>+1.02%</td>
+            <td><span class="tag-blue">On Target</span></td>
+          </tr>
+          <tr>
+            <td><strong>South</strong></td><td>$391,721.91</td><td>$46,749.43</td><td>11.93%</td><td>-0.53%</td>
+            <td><span class="tag-orange">Slightly Below</span></td>
+          </tr>
+          <tr>
+            <td><strong>Central</strong></td><td>$501,239.89</td><td>$39,706.36</td><td>7.92%</td><td>-4.55%</td>
+            <td><span class="tag-red">Underperforming</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- RECOMMENDATIONS -->
+      <h3 class="findings-title">Recommendations</h3>
+      <div class="recs-grid">
+        <div class="rec-card">
+          <div class="rec-num">1</div>
+          <div class="rec-title">Conduct a discount audit in the Central region</div>
+          <div class="rec-text">Investigate why Central's margin is nearly half of West's despite similar sales volume. Identify products where discounts exceed 20% and calculate the profit loss.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num">2</div>
+          <div class="rec-title">Reprice or discontinue the Tables sub-category</div>
+          <div class="rec-text">The business loses $17,725 on Tables despite $206K in sales. Either raise prices, renegotiate supplier costs, or exit this sub-category.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num">3</div>
+          <div class="rec-title">Prioritise retention of high-margin customers</div>
+          <div class="rec-text">Tamara Chand and Raymond Buch generate 46%+ margins. Loyalty initiatives targeting this tier yield the highest return on retention investment.</div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num">4</div>
+          <div class="rec-title">Explore growth opportunities in the South</div>
+          <div class="rec-text">South has the lowest sales but a reasonable 11.93% margin. It is underserved, not inefficient — targeted marketing could unlock significant revenue growth.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label reveal">// Work History</div>
+  <h2 class="section-title reveal">Professional Experience</h2>
+  <p class="section-sub reveal">Four years across growth, operations, retail and procurement — all building the analytical instinct that Business Analysis demands.</p>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Nov 2023 — May 2025</div>
+      <div class="timeline-role">Vice President of Growth</div>
+      <div class="timeline-company">ManyMangoes · Remote</div>
+      <ul class="timeline-bullets">
+        <li>Increased client acquisition by <strong>35%</strong> through targeted outbound lead generation strategies</li>
+        <li>Improved marketing ROI by <strong>40%</strong> using data analytics to refine campaign performance</li>
+        <li>Spearheaded the launch of a scalable CRM system, enhancing team efficiency and lead tracking</li>
+        <li>Mentored a team of five interns and junior staff, contributing to talent development</li>
+      </ul>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jul 2023 — Nov 2023</div>
+      <div class="timeline-role">Engagement Manager & Personal Assistant</div>
+      <div class="timeline-company">ManyMangoes · Remote</div>
+      <ul class="timeline-bullets">
+        <li>Boosted lead qualification rate by <strong>50%</strong> through strategic filtering and personalised outreach</li>
+        <li>Streamlined executive calendar and inbox, improving response turnaround by <strong>60%</strong></li>
+        <li>Designed client engagement content, increasing email open rates by <strong>20%</strong></li>
+      </ul>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jul 2022 — Jul 2023</div>
+      <div class="timeline-role">Cashier</div>
+      <div class="timeline-company">Westgate Supermarket, Juja</div>
+      <ul class="timeline-bullets">
+        <li>Handled over <strong>100 transactions daily</strong> with 99% accuracy in cash and electronic payments</li>
+        <li>Introduced a payment tracking sheet that enhanced reporting accuracy and audit readiness</li>
+        <li>Played a key role in implementing a customer loyalty program that increased repeat purchases</li>
+      </ul>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Aug 2021 — Jul 2022</div>
+      <div class="timeline-role">Procurement Trainee</div>
+      <div class="timeline-company">Jaramogi Oginga Odinga Teaching & Referral Hospital, Kisumu</div>
+      <ul class="timeline-bullets">
+        <li>Supported timely procurement of medical supplies, reducing stock-out incidents by <strong>20%</strong></li>
+        <li>Digitised supplier records, reducing retrieval time by <strong>50%</strong></li>
+        <li>Assisted in bid analysis and vendor evaluations to ensure value-for-money purchases</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">// Education & Certifications</div>
+  <h2 class="section-title">Qualifications</h2>
+  <p class="section-sub">Combining formal education with continuous self-development in data and digital skills.</p>
+
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-icon">📊</div>
+      <div class="edu-degree">Data Analytics</div>
+      <div class="edu-school">ALX Africa</div>
+      <div class="edu-period">Expected Dec 2025</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">📦</div>
+      <div class="edu-degree">Diploma in Procurement & Logistics</div>
+      <div class="edu-school">KCA University, Nairobi</div>
+      <div class="edu-period">Sep 2019 — Nov 2021</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">📱</div>
+      <div class="edu-degree">Digital Marketing & SEO</div>
+      <div class="edu-school">Udemy · Ajira Online</div>
+      <div class="edu-period">Expected Jul 2025</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">✍️</div>
+      <div class="edu-degree">Copywriting & Content Strategy</div>
+      <div class="edu-school">Self-taught</div>
+      <div class="edu-period">Ongoing</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">💻</div>
+      <div class="edu-degree">Certificate in Computer Packages</div>
+      <div class="edu-school">JKUAT</div>
+      <div class="edu-period">Completed</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">🏆</div>
+      <div class="edu-degree">Vuka Employability Workshop</div>
+      <div class="edu-school">KCA University</div>
+      <div class="edu-period">Completed</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Akello Rose Odhiambo</div>
+    <div class="footer-sub">Junior Business Analyst · Nairobi, Kenya · 2026</div>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:odhiamboakello8@gmail.com">odhiamboakello8@gmail.com</a>
+    <a href="tel:+254743082875">+254 743 082 875</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
